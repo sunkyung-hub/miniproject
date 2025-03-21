@@ -1,11 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 <modelVersion>4.0.0</modelVersion>
-<groupId>spring_learning</groupId>
-<artifactId>spring_learning</artifactId>
+<groupId>miniproject</groupId>
+<artifactId>miniproject</artifactId>
 <version>0.0.1-SNAPSHOT</version>
 <packaging>war</packaging>
-<name>spring_learning</name>
-<description>spring_learning</description>
+
 
 	<!--   배포 파일에 맞춰서 해당 압축파일을 생성하는 라이브러리   -->
 	<build>
@@ -20,7 +19,7 @@
 	
 	<!--   프로젝트에 필요한 각종 라이브러리 설치 목록  -->
 	<dependencies>
-	
+	 
 	<!--  Spring, Spring-boot Database관련 id의존성 주입하기 위해서 사용
 		@Inject 사용 가능함  -->
 	<dependency>
