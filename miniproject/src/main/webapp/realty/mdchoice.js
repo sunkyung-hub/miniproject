@@ -10,10 +10,12 @@ fetch("../realty/json/md_choice.json") //json파일 읽어옴
 	data.forEach(element => { //배열의 개수만큼 반복문 돌림
 		console.log(element) //배열 출력
 	html2 +=`<li>
-				<div><img src="./md_room/${element.이미지}"></div>
+				<a href="${element.링크주소}" target="_blank">
+    				 <div><img src="./md_room/${element.이미지}"></div>
+	 			</a>
 				<span>${element.타이틀}</span>
 				<div>${element.상세내용}</div>
-				<a href="${element.링크주소}" target="_blank"></a>
+				
 		   </li>`	
 	
 		});
