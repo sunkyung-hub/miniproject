@@ -13,7 +13,7 @@ fetch("../realty/json/md_choice.json") //json파일 읽어옴
 				<div><img src="./md_room/${element.이미지}"></div>
 				<span>${element.타이틀}</span>
 				<div>${element.상세내용}</div>
-				<a href="${element.링크주소}"></a>
+				<a href="${element.링크주소}" target="_blank"></a>
 		   </li>`	
 	
 		});
