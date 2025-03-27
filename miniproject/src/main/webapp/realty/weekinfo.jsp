@@ -3,7 +3,7 @@
 <div class="weekdays">
       <p>금주분양 매물정보<br><em>이번주 신규 매물정보!</em></p>
       <div class="week_estates">
-        <ul>
+        <ul class ="weeklist">
           <li>
             <span>매매</span>
             <div>LH센트럴힐(공공임대)</div>
@@ -15,3 +15,4 @@
         </ul>
       </div>
     </div>
+	<script src="./weekinfo.js?v=1"></script>
