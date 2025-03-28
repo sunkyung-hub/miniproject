@@ -4,9 +4,12 @@
 <!-- member_mapper.xml -->
 <mapper namespace="mproject"> 
 
-<select id="md_all" resultType="md_DTO">
-
+<select id="md_all" resultType="mddto" parameterType="String">
+select * from md order by midx desc
 </select>
 
+<select id="week_all" resultType="mddto" parameterType="String">
+select * from week order by bindex asc
+</select>
 
 </mapper>

@@ -1,5 +1,5 @@
 $(function(){
-	fetch("../realty/json/week_data.json") //json파일 읽어옴
+	fetch("http://localhost:8080/miniproject/weekjson.do") //json파일 읽어옴
 	.then((response) => response.json()) //읽어온 데이터를 json으로 변환
 	.then((json)=>{
 		let data2 = json.week_db; //json에 있는 md_db 받아오기
@@ -9,7 +9,7 @@ $(function(){
 			console.log(element) //배열 출력
 		html3 +=`<li>
 					<a href="http://localhost:8080/miniproject/realty/week_tails.jsp">
-					<span>매매</span>
+					<span>${element.bunyang_tag}</span>
 					<div>${element.bunyang_title}</div>
 					<aside>${element.bunyang_addr}</aside>
 					<span>${element.bunyang_part} | ${element.bunyang_info}</span><br>

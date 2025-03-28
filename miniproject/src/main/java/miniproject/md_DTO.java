@@ -10,6 +10,12 @@ import lombok.Setter;
 @Repository("md_DTO")
 public class md_DTO {
 	
+	//md
 	int midx;
 	String mlink, mpic, mcom, mtitle;
+	
+	//week
+	int bindex;
+	String btag, btitle, baddr, bpart;
+	String binfo, bdate, bin, bimg;
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- member_mapper.xml -->
+<mapper namespace="mproject"> 
+
+<select id="md_all" resultType="mddto" parameterType="String">
+select * from md order by midx desc
+</select>
+
+
+</mapper>
