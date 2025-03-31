@@ -16,21 +16,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class api_controller {
 
-	PrintWriter pw = null;
+//	PrintWriter pw = null;
 	
 	@Resource(name="md_DTO")
-	md_DTO dto;
+	md_DTO mddto;
 	
 	@Resource(name="md_DAO")
-	md_DAO dao;
+	md_DAO mddao;
+	
+	@Resource(name="week_DTO")
+	week_DTO wedto;
+	
+	@Resource(name="week_DAO")
+	week_DAO wedao;
+	
 	
 	@GetMapping("/mdjson.do")
 	public String mdchoice(HttpServletResponse res) {
 		res.setContentType("text/html;charset=utf-8"); //언어셋
-		
+//		PrintWriter pw = null;
+		/*
+		 * String url로 mdjson.do의 url에서 json 데이터를 받아와, 
+		 * 해당 데이터를 버퍼에 집어넣음
+		 * 버퍼의 데이터가 null이 아닐때, 버퍼의 값을 출력하여 보여주는게 가능한지 ?  */
 		try {
-			this.pw = res.getWriter();
-			List<md_DTO> result = this.dao.md_list();
+			
+			PrintWriter pw = res.getWriter();
+			List<md_DTO> result = this.mddao.md_list();
 			
 			JSONObject alldata = new JSONObject();
 			JSONArray ja = new JSONArray();
@@ -47,8 +59,8 @@ public class api_controller {
 				a++;
 			}
 			alldata.put("md_db", ja);
-			this.pw.print(alldata);
-			this.pw.close();
+			pw.print(alldata);
+			pw.close();
 		}
 		catch(Exception e) {
 			System.out.println(e);
@@ -62,8 +74,8 @@ public class api_controller {
 		res.setContentType("text/html;charset=utf-8"); //언어셋
 		
 		try {
-			this.pw = res.getWriter();
-			List<md_DTO> result2 = this.dao.week_list();
+			PrintWriter pw = res.getWriter();
+			List<week_DTO> result2 = this.wedao.week_list();
 			
 			JSONObject alldata2 = new JSONObject();
 			JSONArray ja2 = new JSONArray();
@@ -85,8 +97,8 @@ public class api_controller {
 				b++;
 			}
 			alldata2.put("week_db", ja2);
-			this.pw.print(alldata2);
-			this.pw.close();
+			pw.print(alldata2);
+			pw.close();
 		}
 		catch(Exception e) {
 			System.out.println(e);

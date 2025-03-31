@@ -7,6 +7,7 @@
    xmlns:jdbc="http://www.springframework.org/schema/jdbc"
    xmlns:mybatis-spring="https://mybatis.org/schema/mybatis-spring"
    xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:tx="http://www.springframework.org/schema/tx"
    xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context
@@ -21,6 +22,8 @@
       http://www.springframework.org/schema/util/spring-util.xsd
       https://mybatis.org/schema/mybatis-spring
       https://mybatis.org/schema/mybatis-spring.xsd
+      http://www.springframwork.org/schema/tx 
+	  http://www.springframework.org/schema/tx/spring-tx.xsd
       ">
       
 	<!-- DB 접속 정보를 활성화 하는 XML -->
@@ -39,14 +42,23 @@
    <bean id="sqlfact" class="org.mybatis.spring.SqlSessionFactoryBean">
       <property name="dataSource" ref="sundb"/>
       <property name="configLocation" value="classpath:/META-INF/config.xml"/>
-   
-   <property name="mapperLocations">
-   	<array>
-   		<value>classpath:/META-INF/mapper.xml</value>
-   	</array>
-   </property>
+  	  <property name="mapperLocations">
+   		<array>
+   			<value>classpath:/META-INF/mapper.xml</value>
+   		</array>
+      </property>
+	 <property name = "transactionFactory">
+	 	<bean class="org.mybatis.spring.transaction.SpringManagedTransactionFactory"/>
+	 </property>      
    </bean>
    
+   <!-- 트랜잭션 관리를 위한 bean -->
+      <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      	<property name="dataSource" ref="sundb"/>
+      </bean> 
+   
+   
+   <!-- sql bean -->
    <bean id="template" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="close">
       <constructor-arg name="sqlSessionFactory" ref="sqlfact"/>
    </bean>

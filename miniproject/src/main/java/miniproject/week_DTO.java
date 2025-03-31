@@ -7,11 +7,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Repository("md_DTO")
-public class md_DTO {
-	
-	//md
-	int midx;
-	String mlink, mpic, mcom, mtitle;
+@Repository("week_DTO")
+public class week_DTO {
 
+	//week
+		int bindex;
+		String btag, btitle, baddr, bpart;
+		String binfo, bdate, bin, bimg;
 }

@@ -8,7 +8,7 @@
 select * from md order by midx desc
 </select>
 
-<select id="week_all" resultType="mddto" parameterType="String">
+<select id="week_all" resultType="wedto" parameterType="String">
 select * from week order by bindex asc
 </select>
 
